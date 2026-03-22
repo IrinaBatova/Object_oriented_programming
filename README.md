@@ -10,7 +10,7 @@
 
 1. Клонируйте репозиторий:
 ```
-git clone git@github.com:IrinaBatova/Coursework_1.git
+git@github.com:IrinaBatova/Object_oriented_programming.git
 ```
 
 2. Все данные о проекте находятся в файле:
@@ -40,3 +40,7 @@ pyproject.toml
 ## Обновления:
 
 1. Добавлен модуль main.py
+2. Добавлен модуль product.py
+3. Добавлен модуль category.py
+4. Добавлен модуль test_product.py
+5. Добавлен модуль test_category.py
