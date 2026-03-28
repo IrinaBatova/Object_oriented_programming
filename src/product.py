@@ -64,16 +64,16 @@ class Product:
             print('Цена не должна быть нулевая или отрицательная')
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 #     product_1 = Product("Молоко", "Фермерское", 80.50, 25)
 #     print(product_1.name)
 #     print(product_1.description)
 #     print(product_1.price)
 #     print(product_1.quantity)
-
-    new_product_1 = {'name': 'Аленка', 'description': 'Молочный шоколад', 'price': 125.00, 'quantity': 46}
-    product_2 = Product.new_product(new_product_1)
-    print(product_2)
-    print(product_2.price)
-    product_2.price = 95.50
-    print(product_2.price)
+#
+#     new_product_1 = {'name': 'Аленка', 'description': 'Молочный шоколад', 'price': 125.00, 'quantity': 46}
+#     product_2 = Product.new_product(new_product_1)
+#     print(product_2)
+#     print(product_2.price)
+#     product_2.price = 95.50
+#     print(product_2.price)

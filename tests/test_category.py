@@ -52,5 +52,24 @@ def test_add_product(category_milk: Category) -> None:
     assert category_milk.product_count == 3
 
 
+# Проверяем, что Геттер products - выводит список товаров в виде строк
+def test_products():
+    product_3 = Product("Колбаса_1", "Докторская", 325.56, 51)
+    product_4 = Product("Колбаса_2", "Любительская", 395.76, 11)
+    product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5)
+    product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234)
+
+    category_2 = Category(
+        "Мясная продукция",
+        "Продукты в составе которых, основной ингредиент - мясо",
+        [product_3, product_4, product_5, product_6],
+    )
+
+    assert category_2.products == ('Колбаса_1, 325.56 руб. Остаток: 51 шт.\n'
+                                   'Колбаса_2, 395.76 руб. Остаток: 11 шт.\n'
+                                   'Колбаса_3, 298.7 руб. Остаток: 5 шт.\n'
+                                   'Колбаса_4, 364.7 руб. Остаток: 234 шт.')
+
+
 if __name__ == "__main__":
     unittest.main()
