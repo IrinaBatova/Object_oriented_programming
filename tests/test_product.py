@@ -26,5 +26,11 @@ def test_new_product() -> None:
     assert product_2.price == 125.00
     assert product_2.quantity == 46
 
+# Проверяем работу сеттера для изменения приватного атрибута цены __price класса Product
+def test_price_setter(product_milk):
+    assert product_milk.price == 80.50
+    product_milk.price = 95.50
+    assert product_milk.price == 95.50
+
 if __name__ == "__main__":
     unittest.main()
