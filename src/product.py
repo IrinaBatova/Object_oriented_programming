@@ -36,6 +36,7 @@ class Product:
         :param product_dict: данные на продукт в виде словаря для создания объекта класса Product
         :return: возвращает экземпляр класса Product на основе данных словаря
         """
+
         name = product_dict['name']
         description = product_dict['description']
         price = product_dict['price']
