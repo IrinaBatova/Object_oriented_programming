@@ -16,7 +16,6 @@ class Category:
     description: str  # Описание категории
     products: list[Product]  # Список товаров в категории
 
-
     def __init__(self, name, description, products):
         """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
 
@@ -30,10 +29,9 @@ class Category:
         Category.category_count += 1
 
         # Считаем количество продуктов в списке при инициализации экземпляра (объекта) класса
-        Category.product_count = (len(products) if products else 0)
+        Category.product_count = len(products) if products else 0
 
-
-# 14.2 Режимы доступа. Задание_1.
+    # 14.2 Режимы доступа. Задание_1.
 
     def add_product(self, product: Product) -> None:
         """
@@ -46,8 +44,7 @@ class Category:
         # Увеличиваем счетчик продуктов на единицу.
         Category.product_count += 1
 
-
-# 14.2 Режимы доступа. Задание_2.
+    # 14.2 Режимы доступа. Задание_2.
 
     @property
     def products(self):
@@ -58,17 +55,17 @@ class Category:
         product_strings = []
 
         for product in self.__products:
-            product_str = f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт."
+            product_str = (
+                f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт."
+            )
             product_strings.append(product_str)
         return "\n".join(product_strings)
-
 
     # def set_products(self, products: list):
     #     """
     #     Сеттер - метод, устанавливающий новое значение приватного атрибута __products
     #     """
     #     self.__products = products
-
 
     def len_products(self) -> int:
         """

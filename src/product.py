@@ -1,6 +1,7 @@
-from typing import TypeVar, Type
+from typing import Type, TypeVar
 
 P = TypeVar("P", bound="Product")
+
 
 class Product:
     """
@@ -27,20 +28,21 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-# 14.2 Режимы доступа. Задание_3.
+    # 14.2 Режимы доступа. Задание_3.
 
     @classmethod
-    def new_product(cls:Type[P], product_dict: dict) -> P:
+    def new_product(cls: Type[P], product_dict: dict) -> P:
         """
-        Класс метод, который принимает на вход данные на продукт в виде словаря и возвращает созданный объект класса Product
+        Класс метод, который принимает на вход данные на продукт в виде словаря и возвращает
+        созданный объект класса Product
         :param product_dict: данные на продукт в виде словаря для создания объекта класса Product
         :return: возвращает экземпляр класса Product на основе данных словаря
         """
 
-        name = product_dict['name']
-        description = product_dict['description']
-        price = product_dict['price']
-        quantity = product_dict['quantity']
+        name = product_dict["name"]
+        description = product_dict["description"]
+        price = product_dict["price"]
+        quantity = product_dict["quantity"]
 
         return cls(name, description, price, quantity)
 
@@ -62,7 +64,7 @@ class Product:
         if price_new > 0:
             self.__price = price_new
         else:
-            print('Цена не должна быть нулевая или отрицательная')
+            print("Цена не должна быть нулевая или отрицательная")
 
 
 # if __name__ == "__main__":
