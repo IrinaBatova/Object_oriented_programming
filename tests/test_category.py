@@ -76,6 +76,13 @@ def test_products():
 def test_repr(category_milk):
     assert str(category_milk) == 'Молочная продукция, общее количество продуктов: 35 шт.'
 
+# Проверяем работу магического метода __iter__
+def test_iter(category_milk):
+    items = []
+    for item in category_milk:
+        items.append(item.__repr__())
+    assert items == ["Product('Молоко_1', 'Фермерское', 80.5, 25)", "Product('Молоко_2', 'Деревенское', 85.75, 10)"]
+
 
 if __name__ == "__main__":
     unittest.main()
