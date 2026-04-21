@@ -72,6 +72,10 @@ def test_products():
         "Колбаса_4, 364.7 руб. Остаток: 234 шт."
     )
 
+# Проверяем работу магического метода __str__
+def test_repr(category_milk):
+    assert str(category_milk) == 'Молочная продукция, общее количество продуктов: 35 шт.'
+
 
 if __name__ == "__main__":
     unittest.main()
