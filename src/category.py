@@ -1,5 +1,5 @@
 from itertools import product
-
+from typing import Iterator
 from src.product import Product
 from src.iter_products import IterProducts
 
@@ -52,7 +52,7 @@ class Category:
     def products(self) -> str:
         """
         Геттер - выводит список товаров в виде строк в формате: "Название продукта, X руб. Остаток: X шт.\n"
-        :return:
+        :return: Строку (str)
         """
         product_strings = []
 
@@ -85,9 +85,18 @@ class Category:
     # 15.1 Магические методы. Задание_1.
 
     # def __repr__(self) -> str:
+    #     """
+    #     Магический метод, предназначенный для создания «официального» строкового представления объекта,
+    #     используется разработчиками для отладки, логирования, технического описания.
+    #     :return: Строку (str)
+    #     """
     #     return f"{self.__class__.__name__}('{self.obj_category}')"
 
     def __str__(self) -> str:
+        """
+        Магический метод, определяющий читаемое описание объекта для пользователей.
+        :return: Строку (str)
+        """
         quantity_products = sum(product_obj.quantity for product_obj in self.__products)
         return f"{self.name}, общее количество продуктов: {quantity_products} шт."
 
@@ -98,7 +107,11 @@ class Category:
     #     return f"{self.name}, общее количество продуктов: {quantity_products} шт."
 
     # 15.1 Магические методы. Дополнительное задание.
-    def __iter__(self):
+    def __iter__(self) -> IterProducts:
+        """
+        Магический метод, который делает объект итерируемым. Назначение - инициализация итерации и возврат итератора.
+        :return: Объект - итератор класса IterProducts
+        """
         return IterProducts(self.__products)
 
 
@@ -116,8 +129,12 @@ if __name__ == "__main__":
 
     print(iter(category_1))
 
+    items = []
+
     for el in category_1:
-        print(el)
+        items.append(el)
+
+    print(items)
 #
 #     print(category_1)
 #
@@ -149,8 +166,8 @@ if __name__ == "__main__":
 
     category_2.add_product(product_6)
 
-    for el in category_2:
-        print(el)
+    # for el in category_2:
+    #     print(el)
 
     # print(category_2.name)
     # print(category_2.description)
