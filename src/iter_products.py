@@ -37,8 +37,9 @@ class IterProducts:
 
     def __next__(self) -> Product:
         """
-
-        :return:
+        Магический метод, определяющий поведение класса-итератора IterProducts при получении следующего элемента
+        последовательности из списка продуктов категории (атрибут __products класса Category)
+        :return: очередной объект класса Product или возбуждает исключение StopIteration, когда элементы заканчиваются
         """
         if self.current < len(self.obj_category_products):
             result = self.obj_category_products[self.current]
