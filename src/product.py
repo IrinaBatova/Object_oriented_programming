@@ -1,5 +1,6 @@
 from typing import Type, TypeVar
 
+# Для типизации экземпляров класса Product используем TypeVar (для поддержки наследования)
 P = TypeVar("P", bound="Product")
 
 
@@ -67,16 +68,43 @@ class Product:
             print("Цена не должна быть нулевая или отрицательная")
 
 
+    # 15.1 Магические методы. Задание_1.
+
+    def __repr__(self) -> str:
+        return f"{self.__class__.__name__}('{self.name}', '{self.description}', {self.price}, {self.quantity})"
+
+    def __str__(self) -> str:
+        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+    # Название продукта, 80 руб. Остаток: 15 шт.
+
+    # 15.1 Магические методы. Задание_2.
+
+    def __add__(self, other_obj: 'Product') -> float:
+        """
+        Метод реализует возможность складывать два объекта(экземпляра) класса Product, текущий и переданный в
+        качестве аргумента other_obj
+        :param other_obj: Другой объект класса Product
+        :return: метод возвращает сумму произведений цены на количество у двух объектов класса Product
+        """
+        sum_obj = self.price * self.quantity + other_obj.price * other_obj.quantity
+        return sum_obj
+
+
 # if __name__ == "__main__":
-#     product_1 = Product("Молоко", "Фермерское", 80.50, 25)
-#     print(product_1.name)
-#     print(product_1.description)
-#     print(product_1.price)
-#     print(product_1.quantity)
 #
+#     product_1 = Product("Молоко", "Фермерское", 80.50, 25)
+#     print(product_1)
+#
+# #     print(product_1.name)
+# #     print(product_1.description)
+# #     print(product_1.price)
+# #     print(product_1.quantity)
+# #
 #     new_product_1 = {'name': 'Аленка', 'description': 'Молочный шоколад', 'price': 125.00, 'quantity': 46}
 #     product_2 = Product.new_product(new_product_1)
 #     print(product_2)
 #     print(product_2.price)
+#     print(product_1 + product_2)
 #     product_2.price = 95.50
 #     print(product_2.price)
+#     print(product_1 + product_2)
