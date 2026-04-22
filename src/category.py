@@ -1,7 +1,6 @@
-from itertools import product
-from typing import Iterator
-from src.product import Product
 from src.iter_products import IterProducts
+from src.product import Product
+
 
 class Category:
     """
@@ -115,34 +114,30 @@ class Category:
         return IterProducts(self.__products)
 
 
-
-if __name__ == "__main__":
-    product_1 = Product("Молоко_1", "Фермерское", 80.50, 25)
-#     # print(product_1)#
-    product_2 = Product("Молоко_2", "Деревенское", 85.75, 10)
-#     # print(product_2)#
-    category_1 = Category(
-        "Молочная продукция",
-        "Продукты в составе которых, основной ингредиент - молоко",
-        [product_1, product_2])
-
-
-    print(iter(category_1))
-
-    items = []
-
-    for el in category_1:
-        items.append(el)
-
-    print(items)
+# if __name__ == "__main__":
+#     product_1 = Product("Молоко_1", "Фермерское", 80.50, 25)
+#     product_2 = Product("Молоко_2", "Деревенское", 85.75, 10)
+#     category_1 = Category(
+#         "Молочная продукция",
+#         "Продукты в составе которых, основной ингредиент - молоко",
+#         [product_1, product_2])
+#
+#     print(iter(category_1))
+#
+#     items = []
+#
+#     for el in category_1:
+#         items.append(el)
+#
+#     print(items)
 #
 #     print(category_1)
 #
 #
-#     # print(category_1.name)
-#     # print(category_1.description)
-#     # print(category_1.category_count)
-#     # print(category_1.product_count)
+#     print(category_1.name)
+#     print(category_1.description)
+#     print(category_1.category_count)
+#     print(category_1.product_count)
 #
 #     print(category_1.products)
 #     print(category_1.len_products())
@@ -150,29 +145,28 @@ if __name__ == "__main__":
 #     print(category_1.products)
 #     print(category_1.len_products())
 #     print(category_1)
-
-    # pprint(dir(category_1))
-
-    product_3 = Product("Колбаса_1", "Докторская", 325.56, 51)
-    product_4 = Product("Колбаса_2", "Любительская", 395.76, 11)
-    product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5)
-    product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234)
-
-    category_2 = Category(
-        "Мясная продукция",
-        "Продукты в составе которых, основной ингредиент - мясо",
-        [product_3, product_4, product_5],
-    )
-
-    category_2.add_product(product_6)
-
-    # for el in category_2:
-    #     print(el)
-
-    # print(category_2.name)
-    # print(category_2.description)
-    # print(category_2.category_count)
-    # print(category_2.product_count)
-    # print(category_2.len_products())
-    # print(category_2.products)
-
+#
+#     print(dir(category_1))
+#
+#     product_3 = Product("Колбаса_1", "Докторская", 325.56, 51)
+#     product_4 = Product("Колбаса_2", "Любительская", 395.76, 11)
+#     product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5)
+#     product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234)
+#
+#     category_2 = Category(
+#         "Мясная продукция",
+#         "Продукты в составе которых, основной ингредиент - мясо",
+#         [product_3, product_4, product_5],
+#     )
+#
+#     category_2.add_product(product_6)
+#
+#     for el in category_2:
+#         print(el)
+#
+#     print(category_2.name)
+#     print(category_2.description)
+#     print(category_2.category_count)
+#     print(category_2.product_count)
+#     print(category_2.len_products())
+#     print(category_2.products)

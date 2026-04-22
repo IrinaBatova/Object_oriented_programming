@@ -1,5 +1,6 @@
-from src.product import Product
 from typing import Iterator
+
+from src.product import Product
 
 
 # 15.1 Магические методы. Дополнительное задание.
@@ -14,8 +15,8 @@ class IterProducts:
 
     # Указываем типы атрибутов экземпляров класса — это часть аннотации типов, какие типы данных ожидаются для каждого
     # атрибута экземпляра класса
-    obj_category_products: list[Product] # # Список товаров в категории
-    current: int # Счетчик
+    obj_category_products: list[Product]  # # Список товаров в категории
+    current: int  # Счетчик
 
     def __init__(self, obj_category_products: list) -> None:
         """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""

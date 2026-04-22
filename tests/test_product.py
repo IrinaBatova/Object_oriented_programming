@@ -39,7 +39,8 @@ def test_new_product() -> None:
 def test_price_getter():
     product_1 = Product("Молоко", "Вкуснотеево", 95.50, 55)
     assert product_1.price == 95.50
-    assert type(product_1.price) == float
+    # assert type(product_1.price) == float
+    assert isinstance(product_1.price, float)
 
 
 # Проверяем работу сеттера для изменения приватного атрибута цены __price класса Product

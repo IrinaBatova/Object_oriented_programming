@@ -67,7 +67,6 @@ class Product:
         else:
             print("Цена не должна быть нулевая или отрицательная")
 
-
     # 15.1 Магические методы. Задание_1.
 
     def __repr__(self) -> str:
@@ -83,12 +82,13 @@ class Product:
         Магический метод, определяющий читаемое описание объекта для пользователей.
         :return: Строку (str)
         """
-        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
     # Название продукта, 80 руб. Остаток: 15 шт.
 
     # 15.1 Магические методы. Задание_2.
 
-    def __add__(self, other_obj: 'Product') -> float:
+    def __add__(self, other_obj: "Product") -> float:
         """
         Метод реализует возможность складывать два объекта(экземпляра) класса Product, текущий и переданный в
         качестве аргумента other_obj
@@ -104,11 +104,11 @@ class Product:
 #     product_1 = Product("Молоко", "Фермерское", 80.50, 25)
 #     print(product_1)
 #
-# #     print(product_1.name)
-# #     print(product_1.description)
-# #     print(product_1.price)
-# #     print(product_1.quantity)
-# #
+#     print(product_1.name)
+#     print(product_1.description)
+#     print(product_1.price)
+#     print(product_1.quantity)
+#
 #     new_product_1 = {'name': 'Аленка', 'description': 'Молочный шоколад', 'price': 125.00, 'quantity': 46}
 #     product_2 = Product.new_product(new_product_1)
 #     print(product_2)

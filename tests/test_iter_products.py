@@ -1,8 +1,7 @@
-import pytest
 import unittest
-from src.product import Product
-from src.category import Category
 from src.iter_products import IterProducts
+from src.product import Product
+
 
 class TestIterProducts(unittest.TestCase):
 
