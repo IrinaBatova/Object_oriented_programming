@@ -42,5 +42,7 @@ pyproject.toml
 1. Добавлен модуль main.py
 2. Добавлен модуль product.py
 3. Добавлен модуль category.py
-4. Добавлен модуль test_product.py
-5. Добавлен модуль test_category.py
+4. Добавлен модуль iter_products.py
+5. Добавлен модуль test_product.py
+6. Добавлен модуль test_category.py
+7. Добавлен модуль test_iter_products.py
