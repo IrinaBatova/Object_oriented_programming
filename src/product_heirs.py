@@ -31,7 +31,29 @@ class Smartphone(Product):
         self.memory = memory  # Объем встроенной памяти
         self.color = color # Цвет
 
+class LawnGrass(Product):
+    """
+    LawnGrass ("Трава газонная") класс наследник класса Product
+    """
+
+    # Переопределяем магический метод __init__ базового класса
+    def __init__(
+            self, name, description, price, quantity, color, country, germination_period
+    ):
+        # Вызываем метод __init__ базового класса
+        super().__init__(name, description, price, quantity)
+
+        # Дополнительный код новые атрибуты (поля) экземпляра (объекта) класса LawnGrass
+        self.country = country  # Страна-производитель
+        self.germination_period = germination_period  # Срок прорастания
+        self.color = color  # Цвет
+
 if __name__ == '__main__':
-    smartphone1 = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, "Серый",
+    smartphone1 = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера",
+                             180000.0, 5, "Серый",
                              "256GB", "S23 Ultra", 95.5)
     print(smartphone1)
+
+    grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20,
+                       "Россия", "7 дней", "Зеленый")
+    print(grass1)
