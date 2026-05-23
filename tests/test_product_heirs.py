@@ -31,7 +31,7 @@ grass2 = LawnGrass(
     "Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый"
 )
 
-# Проверяем инициализацию с использованием конструктора экземпляра (объекта) класса Smartphone
+# Проверяем инициализацию с использованием конструктора экземпляра (объекта) класса "Smartphone"
 def test_init_smartphone() -> None:
     assert smartphone1.name == "Samsung Galaxy S23 Ultra"
     assert smartphone1.description == "256GB, Серый цвет, 200MP камера"
@@ -51,7 +51,21 @@ def test_init_smartphone() -> None:
     assert smartphone2.model == 512
     assert smartphone2.memory == "Gray space"
 
-# Проверяем инициализацию с использованием конструктора экземпляра (объекта) класса LawnGrass
+
+# Проверяем работу магического метода __add__ класса "Smartphone"
+
+def test_add_smartphone() -> None:
+    assert smartphone1 + smartphone2 == 2580000.00
+
+
+def test_add_smartphone_raises() -> None:
+    # Проверка типа и соответствия сообщения регулярному выражению
+    with pytest.raises(
+        TypeError, match="Складывать можно только объекты класса Smartphone."
+    ):
+        smartphone1 + grass1
+
+# Проверяем инициализацию с использованием конструктора экземпляра (объекта) класса "LawnGrass"
 def test_init_lawngrass() -> None:
     assert grass1.name == "Газонная трава"
     assert grass1.description == "Элитная трава для газона"
@@ -60,6 +74,20 @@ def test_init_lawngrass() -> None:
     assert grass1.color == "Россия"
     assert grass1.country == "7 дней"
     assert grass1.germination_period == "Зеленый"
+
+
+# Проверяем работу магического метода __add__ класса "LawnGrass"
+
+def test_add_lawngrass() -> None:
+    assert grass1 + grass2 == 16750.0
+
+
+def test_add_lawngrass_raises() -> None:
+    # Проверка типа и соответствия сообщения регулярному выражению
+    with pytest.raises(
+        TypeError, match="Складывать можно только объекты одного класса."
+    ):
+        grass1 + smartphone1
 
 
 if __name__ == "__main__":
