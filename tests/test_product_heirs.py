@@ -2,7 +2,7 @@ import unittest
 
 import pytest
 
-from src.product_heirs import Smartphone
+from src.product_heirs import Smartphone, LawnGrass
 
 smartphone1 = Smartphone(
     "Samsung Galaxy S23 Ultra",
@@ -16,6 +16,19 @@ smartphone1 = Smartphone(
 )
 smartphone2 = Smartphone(
     "Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space"
+)
+
+grass1 = LawnGrass(
+    "Газонная трава",
+    "Элитная трава для газона",
+    500.0,
+    20,
+    "Россия",
+    "7 дней",
+    "Зеленый",
+)
+grass2 = LawnGrass(
+    "Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый"
 )
 
 # Проверяем инициализацию с использованием конструктора экземпляра (объекта) класса Smartphone
@@ -37,6 +50,17 @@ def test_init_smartphone() -> None:
     assert smartphone2.efficiency == "15"
     assert smartphone2.model == 512
     assert smartphone2.memory == "Gray space"
+
+# Проверяем инициализацию с использованием конструктора экземпляра (объекта) класса LawnGrass
+def test_init_lawngrass() -> None:
+    assert grass1.name == "Газонная трава"
+    assert grass1.description == "Элитная трава для газона"
+    assert grass1.price == 500.0
+    assert grass1.quantity == 20
+    assert grass1.color == "Россия"
+    assert grass1.country == "7 дней"
+    assert grass1.germination_period == "Зеленый"
+
 
 if __name__ == "__main__":
     unittest.main()
