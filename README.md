@@ -46,3 +46,5 @@ pyproject.toml
 5. Добавлен модуль test_product.py
 6. Добавлен модуль test_category.py
 7. Добавлен модуль test_iter_products.py
+8. Добавлен модуль product_heirs.py
+9. Добавлен модуль test_product_heirs.py
