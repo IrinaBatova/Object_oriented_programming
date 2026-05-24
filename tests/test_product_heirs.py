@@ -2,7 +2,7 @@ import unittest
 
 import pytest
 
-from src.product_heirs import Smartphone, LawnGrass
+from src.product_heirs import LawnGrass, Smartphone
 
 smartphone1 = Smartphone(
     "Samsung Galaxy S23 Ultra",
@@ -31,6 +31,7 @@ grass2 = LawnGrass(
     "Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый"
 )
 
+
 # Проверяем инициализацию с использованием конструктора экземпляра (объекта) класса "Smartphone"
 def test_init_smartphone() -> None:
     assert smartphone1.name == "Samsung Galaxy S23 Ultra"
@@ -54,6 +55,7 @@ def test_init_smartphone() -> None:
 
 # Проверяем работу магического метода __add__ класса "Smartphone"
 
+
 def test_add_smartphone() -> None:
     assert smartphone1 + smartphone2 == 2580000.00
 
@@ -64,6 +66,7 @@ def test_add_smartphone_raises() -> None:
         TypeError, match="Складывать можно только объекты класса Smartphone."
     ):
         smartphone1 + grass1
+
 
 # Проверяем инициализацию с использованием конструктора экземпляра (объекта) класса "LawnGrass"
 def test_init_lawngrass() -> None:
@@ -77,6 +80,7 @@ def test_init_lawngrass() -> None:
 
 
 # Проверяем работу магического метода __add__ класса "LawnGrass"
+
 
 def test_add_lawngrass() -> None:
     assert grass1 + grass2 == 16750.0

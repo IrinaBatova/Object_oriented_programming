@@ -1,4 +1,5 @@
 import unittest
+
 from src.iter_products import IterProducts
 from src.product import Product
 

@@ -51,9 +51,13 @@ def test_add_product(category_milk: Category) -> None:
     category_milk.add_product(product_3)
     assert category_milk.product_count == 3
 
+
 # Проверяем, что метод add_product класса Category вызывает исключение ValueError с соответствующим сообщением
 def test_add_product_raise(category_milk: Category):
-    with pytest.raises(TypeError, match='Добавлять можно только объекты класса Product или его подклассов.'):
+    with pytest.raises(
+        TypeError,
+        match="Добавлять можно только объекты класса Product или его подклассов.",
+    ):
         name = str("Алексей")
         category_milk.add_product(name)
 

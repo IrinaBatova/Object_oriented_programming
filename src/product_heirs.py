@@ -1,7 +1,7 @@
 from src.product import Product
 
-
 # 16.1 Наследование. Задание_1. Создаем класс "Smartphone"
+
 
 class Smartphone(Product):
     """
@@ -29,9 +29,9 @@ class Smartphone(Product):
         self.efficiency = efficiency  # Производительность
         self.model = model  # Модель
         self.memory = memory  # Объем встроенной памяти
-        self.color = color # Цвет
+        self.color = color  # Цвет
 
-# 16.1 Наследование. Задание_2. Переопределяем метод __add__ для класса Smartphone
+    # 16.1 Наследование. Задание_2. Переопределяем метод __add__ для класса Smartphone
 
     def __add__(self, other_obj: "Product") -> float:
         """
@@ -60,6 +60,7 @@ class Smartphone(Product):
 
 # 16.1 Наследование. Задание_1. Создаем класс "LawnGrass"
 
+
 class LawnGrass(Product):
     """
     LawnGrass ("Трава газонная") класс наследник класса Product
@@ -67,7 +68,7 @@ class LawnGrass(Product):
 
     # Переопределяем магический метод __init__ базового класса
     def __init__(
-            self, name, description, price, quantity, color, country, germination_period
+        self, name, description, price, quantity, color, country, germination_period
     ):
         # Вызываем метод __init__ базового класса
         super().__init__(name, description, price, quantity)
@@ -77,7 +78,7 @@ class LawnGrass(Product):
         self.germination_period = germination_period  # Срок прорастания
         self.color = color  # Цвет
 
-# 16.1 Наследование. Задание_2. Переопределяем метод __add__ для класса LawnGrass
+    # 16.1 Наследование. Задание_2. Переопределяем метод __add__ для класса LawnGrass
 
     def __add__(self, other_obj: "Product") -> float:
         """
@@ -107,22 +108,22 @@ class LawnGrass(Product):
         #     raise TypeError('Складывать можно только объекты класса LawnGrass и дочерние от него.')
 
 
-if __name__ == '__main__':
-    smartphone1 = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера",
-                             180000.0, 5, "Серый",
-                             "256GB", "S23 Ultra", 95.5)
-    print(smartphone1)
-
-    smartphone2 = Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
-
-    grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20,
-                       "Россия", "7 дней", "Зеленый")
-    print(grass1)
-
-    grass2 = LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
-
-    print(smartphone1 + smartphone2)
-    # print(smartphone1 + grass1)
-
-    print(grass1 + grass2)
-    # print(grass1 + smartphone1)
+# if __name__ == '__main__':
+#     smartphone1 = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера",
+#                              180000.0, 5, "Серый",
+#                              "256GB", "S23 Ultra", 95.5)
+#     print(smartphone1)
+#
+#     smartphone2 = Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
+#
+#     grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20,
+#                        "Россия", "7 дней", "Зеленый")
+#     print(grass1)
+#
+#     grass2 = LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+#
+#     print(smartphone1 + smartphone2)
+#     # print(smartphone1 + grass1)
+#
+#     print(grass1 + grass2)
+#     # print(grass1 + smartphone1)
