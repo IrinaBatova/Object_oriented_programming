@@ -1,12 +1,14 @@
 from typing import Type, TypeVar
 
+from src.base_product import BaseProduct
+
 # Для типизации экземпляров класса Product используем TypeVar (для поддержки наследования)
 P = TypeVar("P", bound="Product")
 
 
-class Product:
+class Product(BaseProduct):
     """
-    Класс Product
+    Класс Product наследник абстрактного класса BaseProduct
     """
 
     # Атрибуты (поля) класса. Определены на уровне класса, общие для всех экземпляров (объектов) класса.
@@ -14,20 +16,20 @@ class Product:
 
     # Указываем типы атрибутов экземпляров класса — это часть аннотации типов,
     # какие типы данных ожидаются для каждого атрибута экземпляра класса
-    name: str  # Название продукта
-    description: str  # Описание продукта
     price: float  # Цена продукта
     quantity: float  # Количество продукта в наличии
+    color: str  # Цвет продукта
 
-    def __init__(self, name, description, price, quantity):
+    def __init__(self, name, description, price, quantity, color):
         """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
 
         # Атрибуты (поля) экземпляра (объекта) класса. Определяются внутри метода __init__ через self. и
         # уникальны для каждого экземпляра (объекта) класса.
-        self.name = name
-        self.description = description
         self.__price = price
         self.quantity = quantity
+        self.color = color
+        # Вызов конструктора родительского класса BaseProduct
+        super().__init__(name=name, description=description)
 
     # 14.2 Режимы доступа. Задание_3.
 
@@ -44,8 +46,9 @@ class Product:
         description = product_dict["description"]
         price = product_dict["price"]
         quantity = product_dict["quantity"]
+        color = product_dict["color"]
 
-        return cls(name, description, price, quantity)
+        return cls(name, description, price, quantity, color)
 
     @property
     def price(self) -> float:
@@ -75,7 +78,8 @@ class Product:
         используется разработчиками для отладки, логирования, технического описания.
         :return: Строку (str)
         """
-        return f"{self.__class__.__name__}('{self.name}', '{self.description}', {self.price}, {self.quantity})"
+        return (f"{self.__class__.__name__}('{self.name}', '{self.description}', {self.__price}, {self.quantity},"
+                f" '{self.color}')")
 
     def __str__(self) -> str:
         """
@@ -101,7 +105,9 @@ class Product:
 
 # if __name__ == "__main__":
 #
-#     product_1 = Product("Молоко", "Фермерское", 80.50, 25)
+#     print(Product.__mro__)
+#     product_1 = Product("Молоко", "Фермерское", 80.50, 25, "")
+#
 #     print(product_1)
 #
 #     print(product_1.name)
@@ -109,7 +115,7 @@ class Product:
 #     print(product_1.price)
 #     print(product_1.quantity)
 #
-#     new_product_1 = {'name': 'Аленка', 'description': 'Молочный шоколад', 'price': 125.00, 'quantity': 46}
+#     new_product_1 = {'name': 'Аленка', 'description': 'Молочный шоколад', 'price': 125.00, 'quantity': 46, 'color':""}
 #     product_2 = Product.new_product(new_product_1)
 #     print(product_2)
 #     print(product_2.price)

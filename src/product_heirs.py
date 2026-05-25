@@ -23,13 +23,12 @@ class Smartphone(Product):
     ):
 
         # Вызываем метод __init__ базового класса
-        super().__init__(name, description, price, quantity)
+        super().__init__(name, description, price, quantity, color)
 
         # Дополнительный код новые атрибуты (поля) экземпляра (объекта) класса Smartphone
         self.efficiency = efficiency  # Производительность
         self.model = model  # Модель
         self.memory = memory  # Объем встроенной памяти
-        self.color = color  # Цвет
 
     # 16.1 Наследование. Задание_2. Переопределяем метод __add__ для класса Smartphone
 
@@ -71,12 +70,11 @@ class LawnGrass(Product):
         self, name, description, price, quantity, color, country, germination_period
     ):
         # Вызываем метод __init__ базового класса
-        super().__init__(name, description, price, quantity)
+        super().__init__(name, description, price, quantity, color)
 
         # Дополнительный код новые атрибуты (поля) экземпляра (объекта) класса LawnGrass
         self.country = country  # Страна-производитель
         self.germination_period = germination_period  # Срок прорастания
-        self.color = color  # Цвет
 
     # 16.1 Наследование. Задание_2. Переопределяем метод __add__ для класса LawnGrass
 
@@ -126,4 +124,4 @@ class LawnGrass(Product):
 #     # print(smartphone1 + grass1)
 #
 #     print(grass1 + grass2)
-#     # print(grass1 + smartphone1)
+#     print(grass1 + smartphone1)
