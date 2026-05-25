@@ -52,6 +52,16 @@ def test_add_product(category_milk: Category) -> None:
     assert category_milk.product_count == 3
 
 
+# Проверяем, что метод add_product класса Category вызывает исключение ValueError с соответствующим сообщением
+def test_add_product_raise(category_milk: Category):
+    with pytest.raises(
+        TypeError,
+        match="Добавлять можно только объекты класса Product или его подклассов.",
+    ):
+        name = str("Алексей")
+        category_milk.add_product(name)
+
+
 # Проверяем, что Геттер products - выводит список товаров в виде строк
 def test_products():
     product_3 = Product("Колбаса_1", "Докторская", 325.56, 51)
