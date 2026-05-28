@@ -1,12 +1,13 @@
 from typing import Type, TypeVar
 
 from src.base_product import BaseProduct
+from src.mixins import ReprMixin
 
 # Для типизации экземпляров класса Product используем TypeVar (для поддержки наследования)
 P = TypeVar("P", bound="Product")
 
 
-class Product(BaseProduct):
+class Product(BaseProduct, ReprMixin):
     """
     Класс Product наследник абстрактного класса BaseProduct
     """
@@ -106,7 +107,7 @@ class Product(BaseProduct):
 # if __name__ == "__main__":
 #
 #     print(Product.__mro__)
-#     product_1 = Product("Молоко", "Фермерское", 80.50, 25, "")
+#     product_1 = Product("Молоко", "Фермерское", 80.50, 25, "Белое")
 #
 #     print(product_1)
 #
