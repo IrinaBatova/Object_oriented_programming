@@ -3,7 +3,7 @@ class ReprMixin:
     Миксин для вывода всех свойств объекта при инициализации.
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         # Вызываем __init__ родительских классов, если они есть
         super().__init__(*args, **kwargs)
         # Выводим строковое представление объекта, созданное __repr__
@@ -16,8 +16,12 @@ class ReprMixin:
         # Получаем имя класса
         class_name = self.__class__.__name__
         # Получаем все атрибуты экземпляра, отфильтровывая методы
-        attrs = ", ".join(f"{name_attr}={value_attr!r}" for name_attr, value_attr in self.__dict__.items())
+        attrs = ", ".join(
+            f"{name_attr}={value_attr!r}"
+            for name_attr, value_attr in self.__dict__.items()
+        )
         return f"{class_name}({attrs})"
+
 
 # if __name__ == '__main__':
 #

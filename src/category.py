@@ -1,6 +1,6 @@
+from src.base_category_order import BaseCategoryOrder
 from src.iter_products import IterProducts
 from src.product import Product
-from src.base_category_order import BaseCategoryOrder
 
 
 class Category(BaseCategoryOrder):
@@ -16,7 +16,7 @@ class Category(BaseCategoryOrder):
     # атрибута экземпляра класса
     name: str  # Название категории
     description: str  # Описание категории
-    products: list[Product]  # Список товаров в категории
+    __products: list[Product]  # Список товаров в категории
 
     def __init__(self, name, description, products) -> None:
         """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
@@ -102,7 +102,7 @@ class Category(BaseCategoryOrder):
         используется разработчиками для отладки, логирования, технического описания.
         :return: Строку (str)
         """
-        return f"{self.__class__.__name__}('{self.obj_category}')"
+        return f"{self.__class__.__name__}('{self.products}')"
 
     def __str__(self) -> str:
         """
@@ -127,15 +127,16 @@ class Category(BaseCategoryOrder):
         return IterProducts(self.__products)
 
 
-if __name__ == "__main__":
-    product_1 = Product("Молоко_1", "Фермерское", 80.50, 25, "Белое")
-    product_2 = Product("Молоко_2", "Деревенское", 85.75, 10, "Розовое")
-    category_1 = Category(
-        "Молочная продукция",
-        "Продукты в составе которых, основной ингредиент - молоко",
-        [product_1, product_2])
-
-    print(iter(category_1))
+# if __name__ == "__main__":
+#     product_1 = Product("Молоко_1", "Фермерское", 80.50, 25, "Белое")
+#     product_2 = Product("Молоко_2", "Деревенское", 85.75, 10, "Розовое")
+#     category_1 = Category(
+#         "Молочная продукция",
+#         "Продукты в составе которых, основной ингредиент - молоко",
+#         [product_1, product_2],
+#     )
+#
+#     print(iter(category_1))
 #
 #     items = []
 #
@@ -161,10 +162,10 @@ if __name__ == "__main__":
 #
 #     print(dir(category_1))
 #
-#     product_3 = Product("Колбаса_1", "Докторская", 325.56, 51)
-#     product_4 = Product("Колбаса_2", "Любительская", 395.76, 11)
-#     product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5)
-#     product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234)
+#     product_3 = Product("Колбаса_1", "Докторская", 325.56, 51, "")
+#     product_4 = Product("Колбаса_2", "Любительская", 395.76, 11, '')
+#     product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5, '')
+#     product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234, '')
 #
 #     category_2 = Category(
 #         "Мясная продукция",

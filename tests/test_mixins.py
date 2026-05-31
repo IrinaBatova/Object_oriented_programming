@@ -1,5 +1,6 @@
 from src.mixins import ReprMixin
 
+
 # Вспомогательный (мок) класс для тестирования миксина
 class User(ReprMixin):
 

@@ -17,11 +17,11 @@ class Product(BaseProduct, ReprMixin):
 
     # Указываем типы атрибутов экземпляров класса — это часть аннотации типов,
     # какие типы данных ожидаются для каждого атрибута экземпляра класса
-    price: float  # Цена продукта
+    __price: float  # Цена продукта
     quantity: float  # Количество продукта в наличии
     color: str  # Цвет продукта
 
-    def __init__(self, name, description, price, quantity, color):
+    def __init__(self, name, description, price, quantity, color) -> None:
         """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
 
         # Атрибуты (поля) экземпляра (объекта) класса. Определяются внутри метода __init__ через self. и
@@ -79,8 +79,10 @@ class Product(BaseProduct, ReprMixin):
         используется разработчиками для отладки, логирования, технического описания.
         :return: Строку (str)
         """
-        return (f"{self.__class__.__name__}('{self.name}', '{self.description}', {self.__price}, {self.quantity},"
-                f" '{self.color}')")
+        return (
+            f"{self.__class__.__name__}('{self.name}', '{self.description}', {self.__price}, {self.quantity},"
+            f" '{self.color}')"
+        )
 
     def __str__(self) -> str:
         """
@@ -116,7 +118,8 @@ class Product(BaseProduct, ReprMixin):
 #     print(product_1.price)
 #     print(product_1.quantity)
 #
-#     new_product_1 = {'name': 'Аленка', 'description': 'Молочный шоколад', 'price': 125.00, 'quantity': 46, 'color':""}
+#     new_product_1 = {'name': 'Аленка', 'description': 'Молочный шоколад', 'price': 125.00,
+#                      'quantity': 46, 'color':""}
 #     product_2 = Product.new_product(new_product_1)
 #     print(product_2)
 #     print(product_2.price)
