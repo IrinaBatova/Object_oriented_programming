@@ -48,3 +48,7 @@ pyproject.toml
 7. Добавлен модуль test_iter_products.py
 8. Добавлен модуль product_heirs.py
 9. Добавлен модуль test_product_heirs.py
+10. Добавлен модуль mixins.py
+11. Добавлен модуль base_product.py
+12. Добавлен модуль base_category_order.py
+13. Добавлен модуль test_mixins.py

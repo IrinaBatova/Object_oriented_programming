@@ -14,8 +14,8 @@ from src.product import Product
 def category_milk() -> Category:
 
     # Создаем список экземпляров (объектов) нужного класса
-    product_1 = Product("Молоко_1", "Фермерское", 80.50, 25)
-    product_2 = Product("Молоко_2", "Деревенское", 85.75, 10)
+    product_1 = Product("Молоко_1", "Фермерское", 80.50, 25, "Белое")
+    product_2 = Product("Молоко_2", "Деревенское", 85.75, 10, "Зеленое")
 
     return Category(
         "Молочная продукция",
@@ -47,7 +47,7 @@ def test_product_count(category_milk: Category) -> None:
 
 # Проверяем, что метод add_product класса Category добавляет один продукт в категорию
 def test_add_product(category_milk: Category) -> None:
-    product_3 = Product("Молоко_3", "Вкуснотеево", 59.75, 16)
+    product_3 = Product("Молоко_3", "Вкуснотеево", 59.75, 16, "Красное")
     category_milk.add_product(product_3)
     assert category_milk.product_count == 3
 
@@ -64,10 +64,10 @@ def test_add_product_raise(category_milk: Category):
 
 # Проверяем, что Геттер products - выводит список товаров в виде строк
 def test_products():
-    product_3 = Product("Колбаса_1", "Докторская", 325.56, 51)
-    product_4 = Product("Колбаса_2", "Любительская", 395.76, 11)
-    product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5)
-    product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234)
+    product_3 = Product("Колбаса_1", "Докторская", 325.56, 51, "")
+    product_4 = Product("Колбаса_2", "Любительская", 395.76, 11, "")
+    product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5, "")
+    product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234, "")
 
     category_2 = Category(
         "Мясная продукция",
@@ -96,8 +96,8 @@ def test_iter(category_milk):
     for item in category_milk:
         items.append(item.__repr__())
     assert items == [
-        "Product('Молоко_1', 'Фермерское', 80.5, 25)",
-        "Product('Молоко_2', 'Деревенское', 85.75, 10)",
+        "Product('Молоко_1', 'Фермерское', 80.5, 25, 'Белое')",
+        "Product('Молоко_2', 'Деревенское', 85.75, 10, 'Зеленое')",
     ]
 
 

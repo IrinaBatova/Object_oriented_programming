@@ -9,7 +9,7 @@ from src.product import Product
 # данные сохраняются в экземпляре (объекте) класса
 @pytest.fixture
 def product_milk():
-    return Product("Молоко", "Фермерское", 80.50, 25)
+    return Product("Молоко", "Фермерское", 80.50, 25, "")
 
 
 # Проверяем инициализацию с использованием конструктора экземпляра (объекта) класса Product
@@ -27,17 +27,19 @@ def test_new_product() -> None:
         "description": "Молочный шоколад",
         "price": 125.00,
         "quantity": 46,
+        "color": "",
     }
     product_2 = Product.new_product(new_product_1)
     assert product_2.name == "Аленка"
     assert product_2.description == "Молочный шоколад"
     assert product_2.price == 125.00
     assert product_2.quantity == 46
+    assert product_2.color == ""
 
 
 # Проверяем работу геттера - возвращение значения приватного атрибута цены __price класса Product
 def test_price_getter():
-    product_1 = Product("Молоко", "Вкуснотеево", 95.50, 55)
+    product_1 = Product("Молоко", "Вкуснотеево", 95.50, 55, "")
     assert product_1.price == 95.50
     # assert type(product_1.price) == float
     assert isinstance(product_1.price, float)
@@ -64,8 +66,8 @@ def test_str(product_milk):
 
 # Проверяем работу магического метода __add__
 def test_add():
-    product_1 = Product("Молоко", "Фермерское", 80.50, 25)
-    product_2 = Product("Аленка", "Молочный шоколад", 125.00, 46)
+    product_1 = Product("Молоко", "Фермерское", 80.50, 25, "")
+    product_2 = Product("Аленка", "Молочный шоколад", 125.00, 46, "")
     assert product_1 + product_2 == 7762.5
 
 

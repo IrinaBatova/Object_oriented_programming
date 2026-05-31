@@ -1,8 +1,9 @@
+from src.base_category_order import BaseCategoryOrder
 from src.iter_products import IterProducts
 from src.product import Product
 
 
-class Category:
+class Category(BaseCategoryOrder):
     """
     Класс Category
     """
@@ -15,15 +16,18 @@ class Category:
     # атрибута экземпляра класса
     name: str  # Название категории
     description: str  # Описание категории
-    products: list[Product]  # Список товаров в категории
+    __products: list[Product]  # Список товаров в категории
 
     def __init__(self, name, description, products) -> None:
         """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
 
+        # Вызов конструктора родительского класса BaseProduct
+        super().__init__(name=name, description=description)
+
         # Атрибуты (поля) экземпляра (объекта) класса. Определяются внутри метода __init__ через self. и уникальны для
         # каждого экземпляра (объекта) класса.
-        self.name = name
-        self.description = description
+        # self.name = name
+        # self.description = description
         self.__products = products  # Приватный атрибут
 
         # Считаем сколько экземпляров (объектов) класса создано
@@ -92,13 +96,13 @@ class Category:
 
     # 15.1 Магические методы. Задание_1.
 
-    # def __repr__(self) -> str:
-    #     """
-    #     Магический метод, предназначенный для создания «официального» строкового представления объекта,
-    #     используется разработчиками для отладки, логирования, технического описания.
-    #     :return: Строку (str)
-    #     """
-    #     return f"{self.__class__.__name__}('{self.obj_category}')"
+    def __repr__(self) -> str:
+        """
+        Магический метод, предназначенный для создания «официального» строкового представления объекта,
+        используется разработчиками для отладки, логирования, технического описания.
+        :return: Строку (str)
+        """
+        return f"{self.__class__.__name__}('{self.products}')"
 
     def __str__(self) -> str:
         """
@@ -124,12 +128,13 @@ class Category:
 
 
 # if __name__ == "__main__":
-#     product_1 = Product("Молоко_1", "Фермерское", 80.50, 25)
-#     product_2 = Product("Молоко_2", "Деревенское", 85.75, 10)
+#     product_1 = Product("Молоко_1", "Фермерское", 80.50, 25, "Белое")
+#     product_2 = Product("Молоко_2", "Деревенское", 85.75, 10, "Розовое")
 #     category_1 = Category(
 #         "Молочная продукция",
 #         "Продукты в составе которых, основной ингредиент - молоко",
-#         [product_1, product_2])
+#         [product_1, product_2],
+#     )
 #
 #     print(iter(category_1))
 #
@@ -157,10 +162,10 @@ class Category:
 #
 #     print(dir(category_1))
 #
-#     product_3 = Product("Колбаса_1", "Докторская", 325.56, 51)
-#     product_4 = Product("Колбаса_2", "Любительская", 395.76, 11)
-#     product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5)
-#     product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234)
+#     product_3 = Product("Колбаса_1", "Докторская", 325.56, 51, "")
+#     product_4 = Product("Колбаса_2", "Любительская", 395.76, 11, '')
+#     product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5, '')
+#     product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234, '')
 #
 #     category_2 = Category(
 #         "Мясная продукция",
