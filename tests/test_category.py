@@ -2,6 +2,7 @@ import unittest
 from unittest import mock
 
 import pytest
+from unicodedata import category
 
 from src.category import Category
 from src.product import Product
@@ -61,7 +62,6 @@ def test_add_product_raise(category_milk: Category):
         name = str("Алексей")
         category_milk.add_product(name)
 
-
 # Проверяем, что Геттер products - выводит список товаров в виде строк
 def test_products():
     product_3 = Product("Колбаса_1", "Докторская", 325.56, 51, "")
@@ -99,6 +99,14 @@ def test_iter(category_milk):
         "Product('Молоко_1', 'Фермерское', 80.5, 25, 'Белое')",
         "Product('Молоко_2', 'Деревенское', 85.75, 10, 'Зеленое')",
     ]
+
+def test_average_price():
+    category_milk_zero = Category(
+        "Молочная продукция",
+        "Продукты в составе которых, основной ингредиент - молоко",
+        [],
+    )
+    assert category_milk_zero.average_price() == 0
 
 
 if __name__ == "__main__":
