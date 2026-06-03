@@ -58,3 +58,6 @@ class Order(BaseCategoryOrder):
 #     obj_order = Order("Заказ_1", "Срочный", product_1, 5)
 #
 #     print(obj_order)
+#     print(obj_order.order_cost_calculation())
+#     print(obj_order.__repr__())
+#     print(obj_order.__str__())

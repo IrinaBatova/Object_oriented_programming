@@ -1,4 +1,5 @@
 import unittest
+from shutil import which
 
 import pytest
 
@@ -18,6 +19,12 @@ def test_init(product_milk) -> None:
     assert product_milk.description == "Фермерское"
     assert product_milk.price == 80.50
     assert product_milk.quantity == 25.00
+
+# Проверяем выброс исключения при инициализации с использованием конструктора экземпляра (объекта) класса Product
+# при количестве продукта равном нулю
+def test_init_quantity_zero() -> None:
+    with pytest.raises(ValueError, match='Товар с нулевым количеством не может быть добавлен.'):
+        Product("Молоко", "Фермерское", 80.50, 0, "")
 
 
 # Проверяем инициализацию с использованием класс метода new_product экземпляра (объекта) класса Product

@@ -126,61 +126,87 @@ class Category(BaseCategoryOrder):
         """
         return IterProducts(self.__products)
 
+    def average_price(self) -> float:
+        try:
+            sum_price_products = sum(product_obj.price for product_obj in self.__products)
+            average_price = sum_price_products / self.len_products()
+            return average_price
+        except ZeroDivisionError as e:
+            print(e)
+            # print('В данной категории товары отсутствуют.')
+            return 0
 
-# if __name__ == "__main__":
-#     product_1 = Product("Молоко_1", "Фермерское", 80.50, 25, "Белое")
-#     product_2 = Product("Молоко_2", "Деревенское", 85.75, 10, "Розовое")
-#     category_1 = Category(
-#         "Молочная продукция",
-#         "Продукты в составе которых, основной ингредиент - молоко",
-#         [product_1, product_2],
-#     )
-#
-#     print(iter(category_1))
-#
-#     items = []
-#
-#     for el in category_1:
-#         items.append(el)
-#
-#     print(items)
-#
-#     print(category_1)
-#
-#
-#     print(category_1.name)
-#     print(category_1.description)
-#     print(category_1.category_count)
-#     print(category_1.product_count)
-#
-#     print(category_1.products)
-#     print(category_1.len_products())
-#     category_1.add_product(product_2)
-#     print(category_1.products)
-#     print(category_1.len_products())
-#     print(category_1)
-#
-#     print(dir(category_1))
-#
-#     product_3 = Product("Колбаса_1", "Докторская", 325.56, 51, "")
-#     product_4 = Product("Колбаса_2", "Любительская", 395.76, 11, '')
-#     product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5, '')
-#     product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234, '')
-#
-#     category_2 = Category(
-#         "Мясная продукция",
-#         "Продукты в составе которых, основной ингредиент - мясо",
-#         [product_3, product_4, product_5],
-#     )
-#
-#     category_2.add_product(product_6)
-#
-#     for el in category_2:
-#         print(el)
-#
-#     print(category_2.name)
-#     print(category_2.description)
-#     print(category_2.category_count)
-#     print(category_2.product_count)
-#     print(category_2.len_products())
-#     print(category_2.products)
+    # В классе Category реализовать новый метод, который подсчитывает средний ценник всех товаров. С помощью исключений
+    # обработать случай, когда в категории нет товаров и сумма всех товаров будет делиться на ноль.
+    # Если такое происходит, возвращайте ноль.
+    # Нужно вычислить среднюю цену товаров, находящихся в категории. Если товаров в категории нет, нужно обработать
+    # это исключение и вернуть ноль.
+
+
+if __name__ == "__main__":
+    product_1 = Product("Молоко_1", "Фермерское", 80.50, 25, "Белое")
+    product_2 = Product("Молоко_2", "Деревенское", 85.75, 10, "Розовое")
+    category_1 = Category(
+        "Молочная продукция",
+        "Продукты в составе которых, основной ингредиент - молоко",
+        [product_1, product_2],
+    )
+
+    category_zero = Category(
+        "Молочная продукция",
+        "Продукты в составе которых, основной ингредиент - молоко",
+        [],
+    )
+    print(category_zero.len_products())
+    print(category_zero.average_price())
+
+    # print(category_1.average_price())
+
+    # print(iter(category_1))
+    #
+    # items = []
+    #
+    # for el in category_1:
+    #     items.append(el)
+    #
+    # print(items)
+    #
+    # print(category_1)
+    #
+    #
+    # print(category_1.name)
+    # print(category_1.description)
+    # print(category_1.category_count)
+    # print(category_1.product_count)
+    #
+    # print(category_1.products)
+    # print(category_1.len_products())
+    # category_1.add_product(product_2)
+    # print(category_1.products)
+    # print(category_1.len_products())
+    # print(category_1)
+    #
+    # print(dir(category_1))
+    #
+    # product_3 = Product("Колбаса_1", "Докторская", 325.56, 51, "")
+    # product_4 = Product("Колбаса_2", "Любительская", 395.76, 11, '')
+    # product_5 = Product("Колбаса_3", "Ливерная", 298.70, 5, '')
+    # product_6 = Product("Колбаса_4", "Останкинская", 364.70, 234, '')
+    #
+    # category_2 = Category(
+    #     "Мясная продукция",
+    #     "Продукты в составе которых, основной ингредиент - мясо",
+    #     [product_3, product_4, product_5],
+    # )
+    #
+    # category_2.add_product(product_6)
+    #
+    # for el in category_2:
+    #     print(el)
+    #
+    # print(category_2.name)
+    # print(category_2.description)
+    # print(category_2.category_count)
+    # print(category_2.product_count)
+    # print(category_2.len_products())
+    # print(category_2.products)
